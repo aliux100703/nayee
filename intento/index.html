@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vale</title>
+    <title>yaque</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #7b68ee; /* Fondo morado */
+            background-color: #7b68ee;
+            /* Fondo morado */
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -19,10 +20,12 @@
 
         .container {
             text-align: center;
-            color: white; /* Texto blanco para contrastar con el fondo */
+            color: white;
+            /* Texto blanco para contrastar con el fondo */
             max-width: 90%;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente */
+            background-color: rgba(255, 255, 255, 0.5);
+            /* Fondo semitransparente */
             border-radius: 10px;
         }
 
@@ -32,23 +35,36 @@
             padding: 8px;
             border-radius: 5px;
             border: none;
-            background-color: #fff; /* Fondo blanco para el select */
-            color: #7b68ee; /* Texto morado */
+            background-color: #fff;
+            /* Fondo blanco para el select */
+            color: #7b68ee;
+            /* Texto morado */
         }
 
         /* Establece un tamaño fijo para las imágenes */
         #imagen img {
             width: 100%;
             max-width: 300px;
-            height: auto; /* Tamaño fijo para todas las imágenes */
-            object-fit: cover; /* Ajusta la imagen dentro del contenedor manteniendo la relación de aspecto */
-            animation: fadeImage 0.5s ease-in-out; /* Aplica la animación de desvanecimiento */
+            height: auto;
+            /* Tamaño fijo para todas las imágenes */
+            object-fit: cover;
+            /* Ajusta la imagen dentro del contenedor manteniendo la relación de aspecto */
+            animation: fadeImage 0.5s ease-in-out;
+            /* Aplica la animación de desvanecimiento */
         }
 
         /* Define la animación de desvanecimiento */
         @keyframes fadeImage {
-            from { opacity: 0; } /* Comienza con opacidad 0 */
-            to { opacity: 1; } /* Termina con opacidad 1 */
+            from {
+                opacity: 0;
+            }
+
+            /* Comienza con opacidad 0 */
+            to {
+                opacity: 1;
+            }
+
+            /* Termina con opacidad 1 */
         }
     </style>
 </head>
@@ -60,7 +76,7 @@
             <h2>Selecciona opción por opción:</h2>
             <div id="imagen">
                 <!-- Aquí se mostrará la imagen -->
-                
+
             </div>
 
             <select id="opciones" onchange="cambiarImagen()">
@@ -72,7 +88,8 @@
             </select>
 
             <!-- Mensaje -->
-            <div id="mensaje" style="display: none; margin-top: 20px; font-size: 18px; font-weight: bold;">Eres la niña más linda que he conocido💜</div>
+            <div id="mensaje" style="display: none; margin-top: 20px; font-size: 18px; font-weight: bold;">Eres la niña
+                más linda que he conocido💜</div>
         </div>
     </div>
 
@@ -92,7 +109,7 @@
 
             // Añadimos la nueva imagen al div
             imagenDiv.appendChild(nuevaImagen);
-            
+
             // Mostrar el mensaje cuando se seleccione la última opción
             if (opcionSeleccionada === "opcion4") {
                 mensajeDiv.style.display = "block";
@@ -102,20 +119,30 @@
         }
 
         function obtenerRutaImagen(opcion) {
-            // Definimos las rutas de las imágenes para cada opción
-            switch (opcion) {
-                case "opcion1":
-                    return "img/img1.webp";
-                case "opcion2":
-                    return "img/img2.webp";
-                case "opcion3":
-                    return "img/img3.webp";
-                case "opcion4":
-                    return "./img/vale.jpg";
-                default:
-                    return ""; // En caso de que no haya una imagen definida
-            }
-        }
+    // Definimos las rutas de las imágenes para cada opción
+    switch (opcion) {
+        case "opcion1":
+            return "img/img1.webp";
+        case "opcion2":
+            return "img/img2.webp";
+        case "opcion3":
+            return "img/img3.webp";
+        case "opcion4":
+            let respuesta = prompt("¿Estás seguro de que quieres ver esta imagen? (Sí/No)");
+            if (respuesta && respuesta.toLowerCase() == "sí") {
+                return "img/default.jpg";
+            } else {
+                setTimeout(() => {
+                    alert("¿Me pasas tu número? 💜");
+                }, 500);
+                 return "./img/yaque.jpeg";
+                 alert("¿Me pasas tu número? 💜");            }
+        default:
+            return "img/default.jpg"; // Imagen por defecto si no hay opción válida
+    }
+}
+
+
     </script>
 </body>
 
